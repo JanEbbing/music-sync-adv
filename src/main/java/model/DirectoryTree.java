@@ -1,21 +1,20 @@
 package model;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.security.NoSuchAlgorithmException;
 
 public class DirectoryTree {
 
-    private SyncTreeNode<SyncElement> root;
+    private SyncDirectory<SyncElement> root;
 
-    public DirectoryTree(Path directoryToIndex)
+    public DirectoryTree(File toIndex)
             throws NoSuchAlgorithmException, IOException {
-        this.root = new SyncTreeNode<SyncElement>(directoryToIndex.toFile());
+        this.root = new SyncDirectory<SyncElement>(toIndex.getName(), toIndex);
     }
 
     public boolean isSyncedWith(DirectoryTree compareTo) {
-        // TODO
-        return false;
+        return this.root.isSyncedWith(compareTo.root);
     }
 
 }

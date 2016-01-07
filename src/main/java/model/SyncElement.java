@@ -10,4 +10,8 @@ public abstract class SyncElement {
 
     public abstract void calculateChecksum() throws Exception;
 
+    public abstract String getName();
+
+    public abstract boolean isSyncedWith(SyncElement partner);
+
 }
